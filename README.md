@@ -1,8 +1,8 @@
-# TitanBot - Ultimate Discord Bot
+# PotatoBot - Ultimate Discord Bot for Moderation, Music & Economy
 
-**TitanBot** is a powerful, feature-rich Discord bot designed to enhance your server experience with comprehensive moderation tools, engaging economy systems, utility features, and much more. Built with modern Discord.js v14 and PostgreSQL for optimal performance and data persistence.
+**PotatoBot** is a powerful, feature-rich Discord bot designed to enhance your server experience with comprehensive moderation tools, engaging economy systems, utility features, and much more. Built with modern Discord.js v14 and PostgreSQL for optimal performance and data persistence.
 
-[![Support Server](https://img.shields.io/badge/-Support%20Server-%235865F2?logo=discord&logoColor=white&style=flat-square&logoWidth=20)](https://discord.gg/8kJBYhTGW9)
+[![Support Server](https://img.shields.io/badge/-Support%20Server-%235865F2?logo=discord&logoColor=white&style=flat-square&logoWidth=20)](https://discord.gg/3jtM5nNTBn)
 [![Discord.js](https://img.shields.io/npm/v/discord.js?style=flat-square&labelColor=%23202225&color=%23202225&logo=npm&logoColor=white&logoWidth=20)](https://www.npmjs.com/package/discord.js)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-%23336791?logo=postgresql&logoColor=white&style=flat-square&logoWidth=20)
 
@@ -11,14 +11,14 @@
 - [Features Overview](#features-overview)
 - [Quick Setup](#quick-setup)
 - [Manual Installation Steps](#manual-installation-steps)
-- [Support Server](https://discord.gg/QnWNz2dKCE)
+- [Support Server](https://discord.gg/3jtM5nNTBn)
 - [Required Bot Intents](#bot-intents)
 - [Contributing](CONTRIBUTING.md)
 
 <a name="features-overview"></a>
 ## Features Overview
 
-TitanBot offers a complete suite of tools for Discord server management and community engagement:
+PotatoBot offers a complete suite of tools for Discord server management and community engagement:
 
 <table>
 <tr>
@@ -94,18 +94,23 @@ TitanBot offers a complete suite of tools for Discord server management and comm
 <a name="quick-setup"></a>
 ## Quick Setup (Recommended for non-coders)
 
-### Video Tutorial
-For a detailed step-by-step setup guide, watch our comprehensive video tutorial:
-[**TitanBot Setup Tutorial**](https://www.youtube.com/@TouchDisc)
+Quick setup guide for deploying PotatoBot in minutes.
+
+### Official Links
+
+- 📺 YouTube: https://www.youtube.com/@potato_thereal
+- 🎵 TikTok: https://www.tiktok.com/@phanduyloiii
+- 🛒 Shop: https://shopkhoaitay.com
+- 💬 Discord: https://discord.gg/3jtM5nNTBn
 
 ## Docker Deployment (Recommended)
 
-TitanBot is fully containerized for easy deployment.
+PotatoBot is fully containerized for easy deployment.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/codebymitch/TitanBot.git
-   cd TitanBot
+   git clone https://github.com/phanduyloi03092009/Potato-Bot.git
+   cd Potato-Bot
    ```
 
 2. **Configure environment variables:**
@@ -131,14 +136,14 @@ Music uses [Lavalink v4](https://github.com/lavalink-devs/Lavalink) via [Riffy](
    ```
 2. With Docker Compose, Lavalink is included automatically when you `docker compose up`.
 3. On Railway, deploy Lavalink separately or as another service and point `LAVALINK_HOST` at the private hostname.
-4. Use `/play <song>` from a voice channel, or `/join` to connect without playing. Prefix shortcuts: `join`, `np`, `leave`, `pause`, `resume`, `skip`, `stop`, `volume <0-100>`, or `music <subcommand>`. Use `/nowplaying` and `/queue` for status; `/music` for loop, shuffle, seek, and other controls.
+4. Use `/play <song>` from a voice channel, or `/join` to connect without playing. Prefix shortcuts: `join`, `np`, `leave`, `pause`, `resume`, `skip`, `stop`, `volume <0-100>`, or `music <subcommand>`.
 
 ### Using GitHub Container Registry
 
 The bot is automatically published to GitHub Container Registry on every push to main.
 
 ```bash
-docker pull ghcr.io/codebymitch/titanbot:main
+docker pull ghcr.io/phanduyloi03092009/potato-bot:main
 ```
 
 <a name="manual-installation-steps"></a>
@@ -151,8 +156,8 @@ docker pull ghcr.io/codebymitch/titanbot:main
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/codebymitch/TitanBot.git
-   cd TitanBot
+   git clone https://github.com/phanduyloi03092009/Potato-Bot.git
+   cd Potato-Bot
    ```
 
 2. **Install Dependencies**
@@ -172,10 +177,10 @@ docker pull ghcr.io/codebymitch/titanbot:main
    GUILD_ID=your_discord_guild_id_here
 
    # PostgreSQL Configuration (Primary Database)
-   POSTGRES_URL=postgresql://postgres:yourpassword@localhost:5432/titanbot
+   POSTGRES_URL=postgresql://postgres:yourpassword@localhost:5432/potatobot
    POSTGRES_HOST=localhost
    POSTGRES_PORT=5432
-   POSTGRES_DB=titanbot
+   POSTGRES_DB=potatobot
    POSTGRES_USER=postgres
    POSTGRES_PASSWORD=yourpassword
    ```
@@ -184,7 +189,7 @@ docker pull ghcr.io/codebymitch/titanbot:main
    - `NODE_ENV=production`
    - `LOG_LEVEL=warn` for a clean production console (critical issues + startup status)
    - `LOG_LEVEL=info` if you want more detailed operational logs
-   - If your chosen `PORT` is already used, TitanBot automatically tries the next port(s)
+   - If your chosen `PORT` is already used, PotatoBot automatically tries the next port(s)
 
    Environment options reference:
    - `NODE_ENV`: `development`, `production`, `test` (any non-`production` value is treated as non-production)
@@ -204,7 +209,7 @@ docker pull ghcr.io/codebymitch/titanbot:main
 
 ### Running in multiple servers (optional)
 
-Most users run TitanBot on a **single server** with `GUILD_ID` set (default tutorial setup). If you want commands to work in **every server** the bot is invited to, opt in with:
+Most users run PotatoBot on a **single server** with `GUILD_ID` set (default tutorial setup). If you want commands to work in **every server** the bot is invited to, opt in with:
 
 ```env
 MULTI_GUILD=true
@@ -220,10 +225,10 @@ Notes for multi-server mode:
 4. **Setup PostgreSQL Database** (Optional but recommended)
    ```bash
    # Create database and user
-   createdb titanbot
-   createuser titanbot
-   psql -c "ALTER USER titanbot PASSWORD 'yourpassword';"
-   psql -c "GRANT ALL PRIVILEGES ON DATABASE titanbot TO titanbot;"
+   createdb potatobot
+   createuser potatobot
+   psql -c "ALTER USER potatobot PASSWORD 'yourpassword';"
+   psql -c "GRANT ALL PRIVILEGES ON DATABASE potatobot TO potatobot;"
    ```
 
 5. **Verify Database Setup**
@@ -238,7 +243,7 @@ Notes for multi-server mode:
 <a name="bot-intents"></a>
 
 ## Required Bot Intents
-TitanBot requires the following Discord intents:
+PotatoBot requires the following Discord intents:
 - **Guilds**
 - **Guild Messages**
 - **Message Content**
@@ -266,10 +271,10 @@ TitanBot requires the following Discord intents:
 
 ## License
 
-TitanBot is released under the MIT License. See [LICENSE](LICENSE) for details.
+PotatoBot is released under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Thank You
 
-Thank you for choosing TitanBot for your Discord server! We're constantly working to improve and add new features based on community feedback.
+Thank you for choosing PotatoBot for your Discord server! We're constantly working to improve and add new features based on community feedback.
 
 *Last updated: May 2026*
