@@ -86,7 +86,8 @@ export async function createInitialHelpMenu(client) {
                 name: '🚀 Getting Started',
                 value: [
                     '**1. Launch setup** — Run `/configwizard` to configure prefix, mod role, and logs.',
-                    '**2. Enable systems** — Use `/commands dashboard` to turn categories on or off.',                    '**3. Browse commands** — Use the menu below to view categories and commands.',
+                    '**2. Enable systems** — Use `/commands dashboard` to turn categories on or off.',
+                    '**3. Browse commands** — Use the menu below to view categories and commands.',
                 ].join('\n'),
                 inline: false,
             },
@@ -101,7 +102,11 @@ export async function createInitialHelpMenu(client) {
             },
             {
                 name: '\u200B',
-                value: `-# ${botName} is [open source](https://youtu.be/1jCZX8s3bJE?si=NPOYx-vxVE1I5vJK)`,
+value: `→ ${botName} official links:
+[YouTube](https://www.youtube.com/@potato_thereal)
+[TikTok](https://www.tiktok.com/@phanduyloiii)
+[Shop](https://shopkhoaitay.com)
+[Discord](https://discord.gg/3jtM5nNTBn)`,
                 inline: false,
             },
         ],
