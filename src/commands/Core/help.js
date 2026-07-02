@@ -101,7 +101,7 @@ export async function createInitialHelpMenu(client) {
             },
             {
                 name: '\u200B',
-value: `→ ${botName} official links:
+               value: `→ ${botName} official links:
 [YouTube](https://www.youtube.com/@potato_thereal)
 [TikTok](https://www.tiktok.com/@phanduyloiii)
 [Shop](https://shopkhoaitay.com)
