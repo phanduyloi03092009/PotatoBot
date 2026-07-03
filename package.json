@@ -1,7 +1,7 @@
 {
-  "name": "titanbot",
+  "name": "Potatobot",
   "version": "2.1.0",
-  "description": "Modular Ultimate Community Bot by Touchpoint Support",
+  "description": "Potato Bot - Roblox & Discord Community Assistant",
   "main": "src/app.js",
   "type": "module",
   "scripts": {
