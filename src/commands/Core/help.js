@@ -49,14 +49,22 @@ function formatCategoryName(rawCategory) {
         .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+import { logger } from '../../utils/logger.js'; // Assuming logger is available
+
 export async function createInitialHelpMenu(client) {
-    const commandsPath = path.join(__dirname, "../../commands");
-    const categoryDirs = (
-        await fs.readdir(commandsPath, { withFileTypes: true })
-    )
-        .filter((dirent) => dirent.isDirectory())
-        .map((dirent) => dirent.name)
-        .sort();
+    let categoryDirs = [];
+    try {
+        const commandsPath = path.join(__dirname, "../../commands");
+        categoryDirs = (
+            await fs.readdir(commandsPath, { withFileTypes: true })
+        )
+            .filter((dirent) => dirent.isDirectory())
+            .map((dirent) => dirent.name)
+            .sort();
+    } catch (error) {
+        logger.error(`Failed to read command categories: ${error.message}`);
+        // Continue with an empty categoryDirs array
+    }
 
     const options = [
         {
@@ -86,7 +94,8 @@ export async function createInitialHelpMenu(client) {
                 name: '🚀 Getting Started',
                 value: [
                     '**1. Launch setup** — Run `/configwizard` to configure prefix, mod role, and logs.',
-                    '**2. Enable systems** — Use `/commands dashboard` to turn categories on or off.',                    '**3. Browse commands** — Use the menu below to view categories and commands.',
+                    '**2. Enable systems** — Use `/commands dashboard` to turn categories on or off.',
+                    '**3. Browse commands** — Use the menu below to view categories and commands.',
                 ].join('\n'),
                 inline: false,
             },
@@ -101,7 +110,7 @@ export async function createInitialHelpMenu(client) {
             },
             {
                 name: '\u200B',
-               value: `→ ${botName} official links:
+value: `→ ${botName} official links:
 [YouTube](https://www.youtube.com/@potato_thereal)
 [TikTok](https://www.tiktok.com/@phanduyloiii)
 [Shop](https://shopkhoaitay.com)
@@ -150,36 +159,11 @@ export default {
         .setDescription("Displays the help menu with all available commands"),
 
     async execute(interaction, guildConfig, client) {
-        
-        const { MessageFlags } = await import('discord.js');
-        await InteractionHelper.safeDefer(interaction);
-        
+        await InteractionHelper.safeDefer(interaction, true);
         const { embeds, components } = await createInitialHelpMenu(client);
-
         await InteractionHelper.safeEditReply(interaction, {
             embeds,
             components,
         });
-
-        setTimeout(async () => {
-            try {
-                if (!InteractionHelper.isInteractionValid(interaction)) {
-                    return;
-                }
-
-                const closedEmbed = createEmbed({
-                    title: "Help menu closed",
-                    description: "Help menu has been closed, use /help again.",
-                    color: "secondary",
-                });
-
-                await InteractionHelper.safeEditReply(interaction, {
-                    embeds: [closedEmbed],
-                    components: [],
-                });
-            } catch (error) {
-                
-            }
-        }, HELP_MENU_TIMEOUT_MS);
     },
 };
